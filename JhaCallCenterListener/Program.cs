@@ -113,13 +113,13 @@ public class HttpServer
                     response.ContentType = "text/json";
 
                     var ani = request.QueryString.Get("ANI");
-                    if (!request.QueryString.HasKeys() || string.IsNullOrWhiteSpace(ani))
+                    if (!request.QueryString.HasKeys() || string.IsNullOrWhiteSpace(ani) || ani?.Length < 10)
                     {
-                        await context.SendResponse(new { success = false, message = "Missing ANI" });
+                        await context.SendResponse(new { success = false, message = "Invalid ANI" });
                         continue;
                     }
 
-                    LaunchCallCenter(ani);
+                    LaunchCallCenter(ani.Substring(ani.Length - 10));
 
                     await context.SendResponse(new { success = true });
                 }
