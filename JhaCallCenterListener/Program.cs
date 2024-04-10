@@ -60,8 +60,7 @@ public class HttpServer
             launchData
                 .Append("jhaxp:")
                 .Append($"Instance={Instance}&")
-                .Append(
-                    "Msg=<StartCallLink xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://jackhenry.com/jxchange/JES/2008\">")
+                .Append("Msg=<StartCallLink>")
                 .Append("<XPMsgRqHdr><XPHdr>")
                 .Append($"<ConsumerProd>{ConsumerProd}</ConsumerProd>")
                 .Append($"<AuditUsrId>{AuditUserId}</AuditUsrId>")
